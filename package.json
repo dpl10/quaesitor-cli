@@ -1,0 +1,36 @@
+{
+	"name": "quaesitor-cli",
+	"version": "1.0.0",
+	"description": "a command–line interface for quaesitor",
+	"main": "dist/index.js",
+	"bin": {
+		"quaesitor": "dist/index.js"
+	},
+	"scripts": {
+		"start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+		"create": "npm run build && npm run test",
+		"build": "tsc -p .",
+		"test": "sudo npm i -g && quaesitor",
+		"refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dpl10/quaesitor-cli.git"
+	},
+	"author": "Damon P. Little",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/dpl10/quaesitor-cli/issues"
+	},
+	"homepage": "https://github.com/dpl10/quaesitor-cli#readme",
+	"devDependencies": {
+		"@types/node": "^12.7.2",
+		"nodemon": "^1.19.1",
+		"ts-node": "^8.3.0",
+		"typescript": "^3.5.3"
+	},
+	"dependencies": {
+		"mem": "^4.0.0",
+		"quaesitor": "^1.0.2"
+	}
+}
