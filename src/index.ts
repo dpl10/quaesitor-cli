@@ -3,7 +3,7 @@ process.env.TF_CPP_MIN_LOG_LEVEL = '2';
 /* imports from node_modules */
 import * as fs from 'fs';
 import * as path from 'path';
-import { Model, Quaesitor } from 'quaesitor';
+import { Classifiers, Quaesitor } from 'quaesitor';
 let h: boolean = false;
 let i: string = null;
 let o: string = null;
@@ -37,8 +37,8 @@ if((notNULL(i) === true) && (checkPipe() === false) && (notNULL(o) === true)){ /
 		writeStream(x);
 	});
 } else {
-	let x	=	'\nA TypeScript command–line interface for quaesitor that finds Latin scientific\n'
-			+	'names within vernacular text. Input data should be plain text. Quaesitor reads\n'
+	let x	=	'\nA TypeScript command–line interface for QUAESITOR that finds Latin scientific\n'
+			+	'names within vernacular text. Input data should be plain text. QUAESITOR reads\n'
 			+	'whole files before processing, so use small files, or have a lot of RAM.\n\n'
 			+	'If you use this software, please cite: Little, D.P. Submitted. Recognition of\n'
 			+	'Latin scientific names using artificial neural networks. Applications in Plant\n'
@@ -68,14 +68,14 @@ function notNULL(x: any): boolean {
 	return(Object.prototype.toString.call(x) === '[object String]');
 }
 async function processInput(x: string, h: boolean): Promise<Array<string>> {
-	const m = new Model();
+	const c = new Classifiers();
 	const p = path.dirname(require.resolve('quaesitor/package.json')) + '/dist/assets/';
-	m.ecnn = fs.readFileSync(p + 'ecnn.pbf');
-	m.edffnn = fs.readFileSync(p + 'edffnn.pbf');
-	m.lcnn = fs.readFileSync(p + 'lcnn.pbf');
-	m.pcnn = fs.readFileSync(p + 'pcnn.pbf');
+	c.bf = fs.readFileSync(p + 'bf.pbf');
+	c.ecnn = fs.readFileSync(p + 'ecnn.pbf');
+	c.lcnn = fs.readFileSync(p + 'lcnn.pbf');
+	c.pdffnn = fs.readFileSync(p + 'pdffnn.pbf');
 	const q = new Quaesitor();
-	await q.loadNetworks(m);
+	await q.loadClassifiers(c);
 	return(q.extractSpecies(x, h));
 }
 async function readFile(i: string, h: boolean): Promise<Array<string>> {

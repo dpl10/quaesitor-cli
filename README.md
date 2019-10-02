@@ -1,7 +1,7 @@
 # quaesitor-cli
 A node-based command–line interface for quaesitor.
 
-Quaesitor locates Latin scientific names in Chinese, Czech, Danish, Dutch, English, French, German, Italian, Japanese, Latin, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish text (approximately 96% of systematic botany and zoology titles). It uses a combination of pattern matching (regular expressions) and a trio of complementary ensembled neural networks. A [live version](https://www.nybg.org/files/scientists/dlittle/quaesitor.html) of the web interface is hosted at the New York Botanical Garden.
+Quaesitor locates Latin scientific names in Chinese, Czech, Danish, Dutch, English, French, German, Italian, Japanese, Latin, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish text (approximately 96% of biodiversity titles). It uses a combination of pattern matching (regular expressions) and a trio of complementary ensembled neural networks. A [live version](https://www.nybg.org/files/scientists/dlittle/quaesitor.html) of the web interface is hosted at the New York Botanical Garden.
 
 ### install
 `npm install quaesitor-cli -g`
@@ -16,6 +16,12 @@ quaesitor [ -h ] -i input-file.txt | program
 cat input-file.txt | quaesitor [ -h ] -o output-file
 ### stream in + stream out
 cat input-file.txt | quaesitor [ -h ] | program
+```
+
+### sample input/output
+```bash
+echo 'Text with one or more Latin Scientific names, such as Cupressus sempervirens L., embedded within it.' | quaesitor
+# should output 'Cupressus sempervirens'
 ```
 
 ### citation

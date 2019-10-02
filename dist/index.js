@@ -59,8 +59,8 @@ else if ((notNULL(i) === false) && (checkPipe() === true) && (notNULL(o) === fal
     });
 }
 else {
-    let x = '\nA TypeScript command–line interface for quaesitor that finds Latin scientific\n'
-        + 'names within vernacular text. Input data should be plain text. Quaesitor reads\n'
+    let x = '\nA TypeScript command–line interface for QUAESITOR that finds Latin scientific\n'
+        + 'names within vernacular text. Input data should be plain text. QUAESITOR reads\n'
         + 'whole files before processing, so use small files, or have a lot of RAM.\n\n'
         + 'If you use this software, please cite: Little, D.P. Submitted. Recognition of\n'
         + 'Latin scientific names using artificial neural networks. Applications in Plant\n'
@@ -93,14 +93,14 @@ function notNULL(x) {
 }
 function processInput(x, h) {
     return __awaiter(this, void 0, void 0, function* () {
-        const m = new quaesitor_1.Model();
+        const c = new quaesitor_1.Classifiers();
         const p = path.dirname(require.resolve('quaesitor/package.json')) + '/dist/assets/';
-        m.ecnn = fs.readFileSync(p + 'ecnn.pbf');
-        m.edffnn = fs.readFileSync(p + 'edffnn.pbf');
-        m.lcnn = fs.readFileSync(p + 'lcnn.pbf');
-        m.pcnn = fs.readFileSync(p + 'pcnn.pbf');
+        c.bf = fs.readFileSync(p + 'bf.pbf');
+        c.ecnn = fs.readFileSync(p + 'ecnn.pbf');
+        c.lcnn = fs.readFileSync(p + 'lcnn.pbf');
+        c.pdffnn = fs.readFileSync(p + 'pdffnn.pbf');
         const q = new quaesitor_1.Quaesitor();
-        yield q.loadNetworks(m);
+        yield q.loadClassifiers(c);
         return (q.extractSpecies(x, h));
     });
 }
