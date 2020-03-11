@@ -71,9 +71,11 @@ async function processInput(x: string, h: boolean): Promise<Array<string>> {
 	const c = new Classifiers();
 	const p = path.dirname(require.resolve('quaesitor/package.json')) + '/dist/assets/';
 	c.bf = fs.readFileSync(p + 'bf.pbf');
+	c.bedffnn = fs.readFileSync(p + 'bedffnn.pbf');
 	c.ecnn = fs.readFileSync(p + 'ecnn.pbf');
 	c.lcnn = fs.readFileSync(p + 'lcnn.pbf');
 	c.pdffnn = fs.readFileSync(p + 'pdffnn.pbf');
+	c.uedffnn = fs.readFileSync(p + 'uedffnn.pbf');
 	const q = new Quaesitor();
 	await q.loadClassifiers(c);
 	return(q.extractSpecies(x, h));

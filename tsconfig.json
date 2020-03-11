@@ -24,6 +24,7 @@
 		"removeComments": true,
 		"resolveJsonModule": true,
 		"rootDir": "src",
+		"skipLibCheck": true,
 		"sourceMap": true,
 		"target": "es2015",
 		"types": [

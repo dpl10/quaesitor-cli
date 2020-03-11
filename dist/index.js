@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -96,9 +97,11 @@ function processInput(x, h) {
         const c = new quaesitor_1.Classifiers();
         const p = path.dirname(require.resolve('quaesitor/package.json')) + '/dist/assets/';
         c.bf = fs.readFileSync(p + 'bf.pbf');
+        c.bedffnn = fs.readFileSync(p + 'bedffnn.pbf');
         c.ecnn = fs.readFileSync(p + 'ecnn.pbf');
         c.lcnn = fs.readFileSync(p + 'lcnn.pbf');
         c.pdffnn = fs.readFileSync(p + 'pdffnn.pbf');
+        c.uedffnn = fs.readFileSync(p + 'uedffnn.pbf');
         const q = new quaesitor_1.Quaesitor();
         yield q.loadClassifiers(c);
         return (q.extractSpecies(x, h));
