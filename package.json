@@ -1,6 +1,6 @@
 {
 	"name": "quaesitor-cli",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "a command–line interface for quaesitor",
 	"main": "dist/index.js",
 	"bin": {
