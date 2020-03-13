@@ -1,6 +1,6 @@
 {
 	"name": "quaesitor-cli",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "a command–line interface for quaesitor",
 	"main": "dist/index.js",
 	"bin": {
@@ -30,7 +30,8 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
-		"mem": "^4.0.0",
-		"quaesitor": "^1.0.6"
+		"@tensorflow/tfjs-node": "^1.7.0",
+		"mem": "^6.0.1",
+		"quaesitor": "^1.0.8"
 	}
 }
