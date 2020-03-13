@@ -4,7 +4,11 @@ A node-based command–line interface for *QUAESITOR*.
 *QUAESITOR* locates Latin scientific names in Chinese, Czech, Danish, Dutch, English, French, German, Italian, Japanese, Latin, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish text (approximately 96% of biodiversity titles). It uses a combination of pattern matching (regular expressions), a Bloom filter, and a trio of complementary ensembled neural networks. A [live version](https://www.nybg.org/files/scientists/dlittle/quaesitor-web/) of the web interface is hosted at the New York Botanical Garden.
 
 ### install
-`npm install quaesitor-cli -g`
+```bash
+npm install quaesitor-cli
+ln -s node_modules/quaesitor-cli/dist/index.js quaesitor
+```
+Due to the way @tensorflow/tfjs-node installs, using the ‘-g’ (‘--global’) option, does not work on many systems. The local npm install, shown above, was tested on Ubuntu 18.04 (node v10.19.0) and MacOS 10.14 (node v12.16.1).
 
 ### use
 ```bash
