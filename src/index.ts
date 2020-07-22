@@ -48,7 +48,7 @@ if((notNULL(i) === true) && (checkPipe() === false) && (notNULL(o) === true)){ /
 			+	'-h\thtml formatted output (default plain text)\n'
 			+	'-i\tinput file in plain text format (if not specified, stdin will be used)\n'
 			+	'-o\toutput file name (if not specified, stdout will be used)\n\n';
-	process.stderr.write(x, 'UTF8');
+	process.stderr.write(x, 'utf8');
 }
 function checkFile(file: string): boolean {
 	try {

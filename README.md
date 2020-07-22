@@ -29,7 +29,7 @@ echo 'Text with one or more Latin Scientific names, such as Cupressus funebris E
 ```
 
 ### citation
-If you use this software, please cite: Little, D.P. Submitted. Recognition of Latin scientific names using artificial neural networks. [Applications in Plant Sciences.](https://doi.org/ADD_DOI)
+If you use this software, please cite: Little, D.P. 2020. Recognition of Latin scientific names using artificial neural networks. [Applications in Plant Sciences.](https://doi.org/ADD_DOI)
 
 ### license
 [MIT](https://github.com/dpl10/quaesitor-cli/blob/master/LICENSE)

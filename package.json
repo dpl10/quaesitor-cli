@@ -1,6 +1,6 @@
 {
 	"name": "quaesitor-cli",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "a command–line interface for quaesitor",
 	"main": "dist/index.js",
 	"bin": {
@@ -24,14 +24,14 @@
 	},
 	"homepage": "https://github.com/dpl10/quaesitor-cli#readme",
 	"devDependencies": {
-		"@types/node": "^12.12.29",
-		"nodemon": "^1.19.4",
-		"ts-node": "^8.6.2",
-		"typescript": "^3.8.3"
+		"@types/node": "^14.0.24",
+		"nodemon": "^2.0.4",
+		"ts-node": "^8.10.2",
+		"typescript": "^3.9.7"
 	},
 	"dependencies": {
-		"@tensorflow/tfjs-node": "^1.7.0",
-		"mem": "^6.0.1",
-		"quaesitor": "^1.0.8"
+		"@tensorflow/tfjs-node": "^2.0.1",
+		"mem": "^6.1.0",
+		"quaesitor": "^1.0.9"
 	}
 }
