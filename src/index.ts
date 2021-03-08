@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-process.env.TF_CPP_MIN_LOG_LEVEL = '2';
+process.env.TF_CPP_MIN_LOG_LEVEL = '2'; /* this line is removed in build and then added back via the 'banner' build property, so changes here have no effect */
 /* imports from node_modules */
-import * as fs from 'fs';
-import * as path from 'path';
-import { Classifiers, Quaesitor } from 'quaesitor';
+import fs from 'fs';
+import { Quaesitor } from 'quaesitor';
 let h: boolean = false;
 let i: string = null;
 let o: string = null;
@@ -68,16 +67,8 @@ function notNULL(x: any): boolean {
 	return(Object.prototype.toString.call(x) === '[object String]');
 }
 async function processInput(x: string, h: boolean): Promise<Array<string>> {
-	const c = new Classifiers();
-	const p = path.dirname(require.resolve('quaesitor/package.json')) + '/dist/assets/';
-	c.bf = fs.readFileSync(p + 'bf.pbf');
-	c.bedffnn = fs.readFileSync(p + 'bedffnn.pbf');
-	c.ecnn = fs.readFileSync(p + 'ecnn.pbf');
-	c.lcnn = fs.readFileSync(p + 'lcnn.pbf');
-	c.pdffnn = fs.readFileSync(p + 'pdffnn.pbf');
-	c.uedffnn = fs.readFileSync(p + 'uedffnn.pbf');
 	const q = new Quaesitor();
-	await q.loadClassifiers(c);
+	await q.loadClassifiers();
 	return(q.extractSpecies(x, h));
 }
 async function readFile(i: string, h: boolean): Promise<Array<string>> {

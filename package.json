@@ -1,7 +1,7 @@
 {
 	"name": "quaesitor-cli",
-	"version": "1.0.10",
-	"description": "a command–line interface for quaesitor",
+	"version": "1.1.0",
+	"description": "a node12+ command–line interface for quaesitor",
 	"main": "dist/index.js",
 	"bin": {
 		"quaesitor": "dist/index.js"
@@ -9,7 +9,7 @@
 	"scripts": {
 		"start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
 		"create": "npm run build && npm run test",
-		"build": "tsc -p .",
+		"build": "./esbuild.mjs && tsc --emitDeclarationOnly --outDir dist",
 		"test": "sudo npm i -g && quaesitor",
 		"refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
 	},
@@ -24,14 +24,16 @@
 	},
 	"homepage": "https://github.com/dpl10/quaesitor-cli#readme",
 	"devDependencies": {
-		"@types/node": "^14.6.3",
-		"nodemon": "^2.0.4",
-		"ts-node": "^9.0.0",
-		"typescript": "^3.9.7"
+		"@tensorflow/tfjs": "^3.0.0",
+		"@types/node": "^14.14.27",
+		"esbuild": "^0.8.51",
+		"nodemon": "^2.0.7",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.1.5"
 	},
 	"dependencies": {
-		"@tensorflow/tfjs-node": "^2.3.0",
-		"mem": "^6.1.1",
-		"quaesitor": "^1.0.10"
-	}
+		"@tensorflow/tfjs-node": "^3.0.0",
+		"quaesitor": "^1.1.0"
+	},
+	"source": "src/index.ts"
 }

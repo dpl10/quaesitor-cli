@@ -8,7 +8,7 @@ A node-based command–line interface for *QUAESITOR*.
 npm install quaesitor-cli
 ln -s node_modules/quaesitor-cli/dist/index.js quaesitor
 ```
-Due to the way @tensorflow/tfjs-node installs, using the ‘-g’ (‘--global’) option, does not work on many systems. The local npm install, shown above, was tested on Ubuntu 18.04 (node v10.19.0) and MacOS 10.14 (node v12.16.1).
+Due to the way @tensorflow/tfjs-node installs, using the ‘-g’ (‘--global’) option, does not work on many systems. The local npm install, shown above, was tested on Ubuntu 20.04 (node v12.20.1) and MacOS 10.14 (node v12.16.1).
 
 ### use
 ```bash
